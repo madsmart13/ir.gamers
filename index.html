@@ -3,70 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>irgamers — فرم لاگ‌ساز</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>IRGAMERS — فرم لاگ‌ساز</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg1:#0f1724; /* dark navy */
-      --bg2:#071025; /* deep */
-      --accent1:#00d4ff; /* cyan */
-      --accent2:#ff4da6; /* magenta */
-      --card:#0b1220;
-      --glass: rgba(255,255,255,0.03);
-      --text:#dbeafe;
+      --bg1:#05060f;
+      --bg2:#0d1224;
+      --accent1:#00f0ff;
+      --accent2:#ff007f;
+      --card:#0b0f1f;
+      --glass: rgba(255,255,255,0.05);
+      --text:#e0e8ff;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--text)}
-    .wrap{max-width:980px;margin:28px auto;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow: 0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    header{display:flex;gap:20px;align-items:center}
-    .logo{width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.6);flex-shrink:0}
-    .logo h1{margin:0;font-family:Orbitron,monospace;color:#071026;font-size:18px}
-    h2{margin:0;font-family:Orbitron,monospace}
-    p.lead{opacity:0.85;margin-top:6px}
+    html,body{height:100%;margin:0;font-family:Rajdhani,Orbitron,sans-serif;background:radial-gradient(circle at top right,var(--bg1) 0%,var(--bg2) 70%);color:var(--text);overflow-x:hidden}
+    .wrap{max-width:1000px;margin:30px auto;padding:28px;border-radius:20px;background:linear-gradient(145deg,rgba(0,0,0,0.4),rgba(255,255,255,0.05));box-shadow:0 0 30px rgba(0,255,255,0.2),inset 0 0 40px rgba(255,0,255,0.1);border:1px solid rgba(255,255,255,0.1)}
+    header{display:flex;gap:20px;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+    .logo{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;box-shadow:0 0 25px rgba(255,0,255,0.3);margin-bottom:10px}
+    .logo h1{margin:0;font-family:Orbitron;color:#000;font-size:26px;text-shadow:0 0 10px rgba(255,255,255,0.5)}
+    h2{margin:0;font-family:Orbitron;font-size:22px;color:var(--accent1);text-shadow:0 0 12px var(--accent1)}
+    p.lead{opacity:0.9;margin-top:6px;font-size:15px}
 
-    form{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:20px}
-    .left{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.025)}
-    .right{display:flex;flex-direction:column;gap:12px}
+    .alert-box{margin-top:20px;padding:12px 16px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,255,255,0.2);text-align:center;font-size:14px;color:#9efcff}
 
-    label{display:block;font-size:13px;margin-bottom:6px;color:var(--text);opacity:0.95}
-    input[type=text], input[type=number], textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:var(--text);outline:none}
-    textarea{min-height:120px;resize:vertical}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    form{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:25px}
+    .left{background:rgba(0,0,0,0.4);padding:20px;border-radius:15px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 0 15px rgba(0,255,255,0.05)}
+    .right{display:flex;flex-direction:column;gap:14px}
+
+    label{display:block;font-size:14px;margin-bottom:6px;color:var(--accent1)}
+    input[type=text], input[type=number], textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(0,0,0,0.5);color:var(--text);outline:none;transition:0.2s;box-shadow:inset 0 0 10px rgba(0,255,255,0.05)}
+    input:hover,textarea:hover{border-color:var(--accent1);box-shadow:0 0 8px var(--accent1)}
+    textarea{min-height:100px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
     .note{font-size:12px;opacity:0.8;margin-top:8px}
-    .muted{font-size:12px;opacity:0.7}
 
-    .actions{display:flex;gap:10px;align-items:center}
-    .btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
-    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#05101a}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+    .actions{display:flex;gap:10px;align-items:center;margin-top:15px}
+    .btn{padding:10px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:600;font-family:Orbitron,monospace;letter-spacing:0.5px;transition:0.2s}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#000;box-shadow:0 0 12px var(--accent1)}
+    .btn-primary:hover{transform:scale(1.05)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.2);color:var(--text)}
 
-    .preview{border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.025);min-height:320px}
-    .log-header{font-weight:700;margin-bottom:8px}
+    .preview{border-radius:12px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);min-height:340px;box-shadow:inset 0 0 20px rgba(0,255,255,0.05)}
+    .log-header{font-weight:700;margin-bottom:8px;color:var(--accent2)}
 
-    footer{margin-top:18px;text-align:center;color:rgba(255,255,255,0.5);font-size:13px}
+    footer{margin-top:22px;text-align:center;color:rgba(255,255,255,0.6);font-size:13px}
 
-    /* responsive */
     @media (max-width:900px){form{grid-template-columns:1fr;}.right{order:2}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="logo" aria-hidden>
-        <h1>IRGAMERS</h1>
-      </div>
-      <div>
-        <h2>IRGAMERS — سازنده لاگ پروفایل</h2>
-        <p class="lead">فرمی برای ساخت لاگ متنی و تصویری از اطلاعات پروفایل — مناسب برای استفاده در GitHub Pages (نیازی به سرور ندارد).</p>
-      </div>
+      <div class="logo"><h1>IRG</h1></div>
+      <h2>IRGAMERS — فرم گیمینگ لاگ‌ساز</h2>
+      <p class="lead">فرم مخصوص ساخت لاگ متنی و تصویری پروفایل با تم گیمینگ، بدون نیاز به سرور (GitHub Pages)</p>
+      <div class="alert-box">⚠️ لطفاً بعد از دانلود، لاگ را به آیدی <b>@bm1pro</b> در تلگرام یا به ایمیل <b>bm.pro.ir@gmail.com</b> ارسال کنید.</div>
     </header>
 
     <form id="profileForm" onsubmit="return false;">
       <div class="left">
         <div class="row">
           <div>
-            <label>نام نمایشی (Display name)</label>
+            <label>نام نمایشی</label>
             <input id="displayName" type="text" placeholder="مثال: Mahdi" />
           </div>
           <div>
@@ -75,12 +74,18 @@
           </div>
         </div>
 
-        <div style="margin-top:10px">
-          <label>شهر / محل زندگی</label>
-          <input id="city" type="text" placeholder="مثال: تهران" />
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>شهر</label>
+            <input id="city" type="text" placeholder="مثال: تبریز" />
+          </div>
+          <div>
+            <label>تم مورد نظر</label>
+            <input id="themeChoice" type="text" placeholder="مثال: آبی و صورتی نئونی" />
+          </div>
         </div>
 
-        <div style="margin-top:10px" class="row">
+        <div class="row" style="margin-top:10px">
           <div>
             <label>آیدی تلگرام</label>
             <input id="telegram" type="text" placeholder="مثال: @bm1pro" />
@@ -91,7 +96,7 @@
           </div>
         </div>
 
-        <div style="margin-top:10px" class="row">
+        <div class="row" style="margin-top:10px">
           <div>
             <label>لینک اینستاگرام</label>
             <input id="instagram" type="text" placeholder="https://instagram.com/your" />
@@ -103,247 +108,89 @@
         </div>
 
         <div style="margin-top:10px">
-          <label>توضیحات اضافی (مثال: می‌خوام تم سایتم آبی و صورتی...)</label>
-          <textarea id="description" placeholder="اینجا توضیحات برای طراح یا برای لاگ بنویسید"></textarea>
+          <label>توضیحات اضافی</label>
+          <textarea id="description" placeholder="مثال: می‌خوام تم سایت آبی و صورتی باشه..."></textarea>
         </div>
 
         <div style="margin-top:10px">
-          <label>فیلدهای دلخواه دیگر (هر فیلد با کاما جدا شود)</label>
-          <input id="extraFields" type="text" placeholder="مثال: سطح اکانت:ویترین,سابقه:5 سال" />
+          <label>فیلدهای دلخواه دیگر (هرکدام با کاما جدا شود)</label>
+          <input id="extraFields" type="text" placeholder="مثال: سطح:ویترین, سابقه:5 سال" />
         </div>
 
-        <p class="note">توضیح: اگر نمی‌خواهید یک فیلد در سایت شما نمایش داده شود، مقدار <strong>n</strong> وارد کنید (مثلاً در فیلد شهر مقدار n بگذارید).</p>
+        <p class="note">اگر نمی‌خواهید یک فیلد در سایت شما نمایش داده شود، مقدار <strong>n</strong> وارد کنید.</p>
 
-        <div class="actions" style="margin-top:12px">
+        <div class="actions">
           <button class="btn btn-primary" id="downloadBoth">دانلود لاگ متنی و تصویری</button>
           <button class="btn btn-ghost" id="downloadText">دانلود فقط لاگ متنی</button>
           <button class="btn btn-ghost" id="downloadImage">دانلود فقط لاگ تصویری</button>
         </div>
-
       </div>
 
       <div class="right">
         <div class="preview" id="preview">
-          <div class="log-header">این فایل را به این ایدی در تلگرام بفرستید: @bm1pro یا به ایمیل bm.pro.ir@gmail.com</div>
+          <div class="log-header">این فایل را به آیدی @bm1pro در تلگرام یا به ایمیل bm.pro.ir@gmail.com ارسال کنید</div>
           <div id="textPreview" style="white-space:pre-wrap;font-family:monospace;opacity:0.95"></div>
-          <div style="margin-top:12px">
-            <canvas id="logCanvas" width="720" height="360" style="width:100%;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);"></canvas>
-          </div>
-          <div class="muted" style="margin-top:8px">پیش‌نمایش تصویر لاگ — برای پیوست در تلگرام/ایمیل مناسب است.</div>
-        </div>
-
-        <div style="display:flex;gap:10px;align-items:center;justify-content:space-between">
-          <div class="muted">قابل اجرا در GitHub Pages — بدون نیاز به سرور</div>
-          <div class="muted">فرمت‌های خروجی: .txt  و  .png</div>
+          <canvas id="logCanvas" width="720" height="380" style="width:100%;border-radius:8px;margin-top:10px;background:rgba(0,0,0,0.4)"></canvas>
         </div>
       </div>
-
     </form>
 
-    <footer>طراحی: IRGAMERS • فایل تولید شده را بررسی کنید و سپس ارسال کنید.</footer>
+    <footer>© 2025 IRGAMERS — طراحی گیمینگ و مدرن • ارسال لاگ به <b>@bm1pro</b> یا <b>bm.pro.ir@gmail.com</b></footer>
   </div>
 
 <script>
-// Helper: get field value and treat 'n' as hidden
 function val(id){const v=document.getElementById(id).value.trim();return (v.toLowerCase()==='n')?null:v||null}
-
 function buildData(){
   const data = {
-    displayName: val('displayName') || '—',
-    age: val('age') || '—',
-    city: val('city') || '—',
-    telegram: val('telegram') || '—',
-    discord: val('discord') || '—',
-    instagram: val('instagram') || '—',
-    steam: val('steam') || '—',
-    description: val('description') || '—',
-    extra: val('extraFields') || ''
+    displayName: val('displayName')||'—',
+    age: val('age')||'—',
+    city: val('city')||'—',
+    themeChoice: val('themeChoice')||'—',
+    telegram: val('telegram')||'—',
+    discord: val('discord')||'—',
+    instagram: val('instagram')||'—',
+    steam: val('steam')||'—',
+    description: val('description')||'—',
+    extra: val('extraFields')||''
   }
-  // parse extras
-  data.extraPairs = [];
-  if(data.extra){
-    data.extra.split(',').forEach(it=>{
-      const p = it.split(':').map(x=>x.trim());
-      if(p[0]) data.extraPairs.push({k:p[0],v:p[1]||'—'})
-    })
-  }
+  data.extraPairs=[];if(data.extra){data.extra.split(',').forEach(it=>{const p=it.split(':').map(x=>x.trim());if(p[0])data.extraPairs.push({k:p[0],v:p[1]||'—'})})}
   return data
 }
-
 function buildTextLog(d){
-  // First line must be prominent — we'll use caps and separators
-  const header = '*** این فایل را به این ایدی در تلگرام بفرستید: @bm1pro  یا به ایمیل: bm.pro.ir@gmail.com ***';
-  let lines = [header, ''];
+  let lines=['*** ارسال فایل به آیدی @bm1pro یا ایمیل bm.pro.ir@gmail.com ***',''];
   lines.push(`نام نمایشی: ${d.displayName}`);
-  if(d.age!=='—') lines.push(`سن: ${d.age}`);
-  if(d.city!=='—') lines.push(`شهر/محل زندگی: ${d.city}`);
-  if(d.telegram!=='—') lines.push(`آیدی تلگرام: ${d.telegram}`);
-  if(d.discord!=='—') lines.push(`آیدی دیسکورد: ${d.discord}`);
-  if(d.instagram!=='—') lines.push(`لینک اینستاگرام: ${d.instagram}`);
-  if(d.steam!=='—') lines.push(`لینک استیم: ${d.steam}`);
-  if(d.description && d.description!=='—'){
-    lines.push('');
-    lines.push('توضیحات:');
-    lines.push(d.description);
-  }
-  if(d.extraPairs.length){
-    lines.push('');
-    lines.push('فیلدهای اضافی:');
-    d.extraPairs.forEach(p=>lines.push(`${p.k}: ${p.v}`));
-  }
-  lines.push('');
-  lines.push('--- پایان لاگ ---');
-  return lines.join('\n')
+  lines.push(`سن: ${d.age}`);
+  lines.push(`شهر: ${d.city}`);
+  lines.push(`تم مورد نظر: ${d.themeChoice}`);
+  lines.push(`تلگرام: ${d.telegram}`);
+  lines.push(`دیسکورد: ${d.discord}`);
+  lines.push(`اینستاگرام: ${d.instagram}`);
+  lines.push(`استیم: ${d.steam}`);
+  if(d.description&&d.description!=='—'){lines.push('', 'توضیحات:', d.description)}
+  if(d.extraPairs.length){lines.push('', 'فیلدهای اضافی:');d.extraPairs.forEach(p=>lines.push(`${p.k}: ${p.v}`))}
+  lines.push('', '--- پایان لاگ ---');
+  return lines.join('\n');
 }
-
-function downloadFile(filename, content, mime){
-  const blob = new Blob([content], {type: mime});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url), 5000);
-}
-
-function renderPreview(){
-  const d = buildData();
-  const txt = buildTextLog(d);
-  document.getElementById('textPreview').textContent = txt;
-  renderCanvas(d);
-}
-
+function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)}
+function renderPreview(){const d=buildData();document.getElementById('textPreview').textContent=buildTextLog(d);renderCanvas(d)}
 function renderCanvas(d){
-  const c = document.getElementById('logCanvas');
-  const ctx = c.getContext('2d');
-  // Clear
-  ctx.clearRect(0,0,c.width,c.height);
-  // Background gradient
-  const g = ctx.createLinearGradient(0,0,c.width,0);
-  g.addColorStop(0,'#00101a');
-  g.addColorStop(1,'#071025');
-  ctx.fillStyle = g; ctx.fillRect(0,0,c.width,c.height);
-  // glowing accents
-  const glow = ctx.createLinearGradient(0,0,c.width,0);
-  glow.addColorStop(0,'rgba(0,212,255,0.12)');
-  glow.addColorStop(1,'rgba(255,77,166,0.12)');
-  ctx.fillStyle = glow; ctx.fillRect(0,0,c.width,30);
-  // Header text
-  ctx.font = '600 18px Orbitron, sans-serif';
-  ctx.fillStyle = '#dff9ff';
-  ctx.fillText('این فایل را به این ایدی در تلگرام بفرستید: @bm1pro', 16, 22);
-  ctx.fillStyle = '#ffd7f0';
-  ctx.fillText('یا به ایمیل: bm.pro.ir@gmail.com', 16, 44);
-
-  // Left panel card
-  ctx.fillStyle = 'rgba(255,255,255,0.02)';
-  roundRect(ctx, 12, 60, 220, 280, 12, true, false);
-  // logo circle
-  ctx.fillStyle = '#00d4ff'; ctx.beginPath(); ctx.arc(122, 120, 34, 0, Math.PI*2); ctx.fill();
-  ctx.fillStyle = '#071026'; ctx.font = '700 20px Orbitron'; ctx.fillText('IR', 112, 128);
-  ctx.font = '600 14px Orbitron'; ctx.fillStyle = '#cfeffd'; ctx.fillText('IRGAMERS', 92, 160);
-
-  // Right area — text fields
-  ctx.font = '600 16px Inter, sans-serif'; ctx.fillStyle = '#e8f8ff';
-  let y = 86;
-  const x = 260;
-  const lineH = 26;
-  const addField = (label, value)=>{
-    ctx.font = '600 13px Inter'; ctx.fillStyle = '#a6dff0'; ctx.fillText(label, x, y);
-    y += 16;
-    ctx.font = '500 14px Inter'; ctx.fillStyle = '#dbeafe'; ctx.fillText(value, x, y);
-    y += lineH;
-  }
-  addField('نام نمایشی:', d.displayName || '—');
-  addField('سن:', d.age || '—');
-  addField('شهر:', d.city || '—');
-  addField('تلگرام:', d.telegram || '—');
-  addField('دیسکورد:', d.discord || '—');
-  addField('اینستا:', d.instagram || '—');
-  addField('استیم:', d.steam || '—');
-
-  if(d.description && d.description!=='—'){
-    y += 6; ctx.font = '600 13px Inter'; ctx.fillStyle = '#a6dff0'; ctx.fillText('توضیحات:', x, y); y += 18;
-    // wrap description
-    ctx.font = '500 13px Inter'; ctx.fillStyle = '#dbeafe';
-    wrapText(ctx, d.description, x, y, c.width - x - 20, 18);
-  }
-
-  // extras
-  if(d.extraPairs.length){
-    let exY = c.height - 44; ctx.font = '600 12px Inter'; ctx.fillStyle = '#a6dff0'; ctx.fillText('فیلدهای اضافی:', 16, exY - 20);
-    ctx.font = '500 12px Inter'; ctx.fillStyle = '#dbeafe';
-    let exX = 16, offset = 0;
-    d.extraPairs.forEach(p=>{
-      ctx.fillText(`${p.k}: ${p.v}`, exX + offset, exY);
-      offset += 160;
-    })
-  }
+  const c=document.getElementById('logCanvas');const ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);
+  const g=ctx.createLinearGradient(0,0,c.width,0);g.addColorStop(0,'#001021');g.addColorStop(1,'#170020');ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);
+  ctx.font='600 20px Orbitron';ctx.fillStyle='#00f0ff';ctx.fillText('IRGAMERS PROFILE LOG',20,40);
+  ctx.font='600 14px Rajdhani';ctx.fillStyle='#ff73d9';ctx.fillText('ارسال به @bm1pro یا bm.pro.ir@gmail.com',20,65);
+  let y=100;const lineH=24;const add=(t,v)=>{ctx.fillStyle='#00e0ff';ctx.fillText(t,20,y);ctx.fillStyle='#ffffff';ctx.fillText(v,180,y);y+=lineH;}
+  add('نام:',d.displayName);add('سن:',d.age);add('شهر:',d.city);add('تم:',d.themeChoice);add('تلگرام:',d.telegram);add('دیسکورد:',d.discord);add('اینستا:',d.instagram);add('استیم:',d.steam);
+  if(d.description&&d.description!=='—'){y+=10;ctx.fillStyle='#00e0ff';ctx.fillText('توضیحات:',20,y);y+=lineH;ctx.fillStyle='#fff';wrapText(ctx,d.description,20,y,680,20)}
 }
-
-function wrapText(ctx, text, x, y, maxWidth, lineHeight){
-  const words = text.split(' ');
-  let line = '';
-  for(let n=0;n<words.length;n++){
-    const testLine = line + words[n] + ' ';
-    const metrics = ctx.measureText(testLine);
-    const testWidth = metrics.width;
-    if(testWidth > maxWidth && n>0){
-      ctx.fillText(line, x, y);
-      line = words[n] + ' ';
-      y += lineHeight;
-    }else{
-      line = testLine;
-    }
-  }
-  ctx.fillText(line, x, y);
-}
-
-function roundRect(ctx, x, y, w, h, r, fill, stroke) {
-  if (typeof r === 'undefined') r = 5; if (typeof r === 'number') r = {tl:r,tr:r,br:r,bl:r};
-  ctx.beginPath(); ctx.moveTo(x + r.tl, y); ctx.lineTo(x + w - r.tr, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r.tr);
-  ctx.lineTo(x + w, y + h - r.br); ctx.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
-  ctx.lineTo(x + r.bl, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r.bl);
-  ctx.lineTo(x, y + r.tl); ctx.quadraticCurveTo(x, y, x + r.tl, y); ctx.closePath();
-  if (fill) ctx.fill(); if (stroke) ctx.stroke();
-}
-
-// Buttons
-document.getElementById('downloadBoth').addEventListener('click',()=>{
-  const d = buildData();
-  const txt = buildTextLog(d);
-  const timestamp = new Date().toISOString().replace(/[:.]/g,'-');
-  downloadFile(`irgamers_log_${d.displayName}_${timestamp}.txt`, txt, 'text/plain');
-  // image
-  const c = document.getElementById('logCanvas');
-  c.toBlob(function(blob){
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = `irgamers_log_${d.displayName}_${timestamp}.png`; document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),5000);
-  })
-});
-
-document.getElementById('downloadText').addEventListener('click',()=>{
-  const d = buildData(); const txt = buildTextLog(d);
-  const timestamp = new Date().toISOString().replace(/[:.]/g,'-');
-  downloadFile(`irgamers_log_${d.displayName}_${timestamp}.txt`, txt, 'text/plain');
-});
-
-document.getElementById('downloadImage').addEventListener('click',()=>{
-  const d = buildData(); const timestamp = new Date().toISOString().replace(/[:.]/g,'-');
-  const c = document.getElementById('logCanvas');
-  c.toBlob(function(blob){
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = `irgamers_log_${d.displayName}_${timestamp}.png`; document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),5000);
-  })
-});
-
-// live preview: attach input listeners
-['displayName','age','city','telegram','discord','instagram','steam','description','extraFields'].forEach(id=>{
-  document.getElementById(id).addEventListener('input', renderPreview);
-});
-
-// initial render
+function wrapText(ctx,text,x,y,max,lineH){const words=text.split(' ');let line='';for(let n=0;n<words.length;n++){const test=line+words[n]+' ';const m=ctx.measureText(test);if(m.width>max&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineH}else{line=test}}ctx.fillText(line,x,y)}
+['displayName','age','city','themeChoice','telegram','discord','instagram','steam','description','extraFields'].forEach(id=>document.getElementById(id).addEventListener('input',renderPreview));
 renderPreview();
+
+document.getElementById('downloadBoth').onclick=()=>{const d=buildData();const t=buildTextLog(d);const stamp=Date.now();downloadFile(`irgamers_${d.displayName}_${stamp}.txt`,t,'text/plain');const c=document.getElementById('logCanvas');const link=document.createElement('a');link.download=`irgamers_${d.displayName}_${stamp}.png`;link.href=c.toDataURL('image/png');link.click();}
+
+document.getElementById('downloadText').onclick=()=>{const d=buildData();const t=buildTextLog(d);downloadFile(`irgamers_${d.displayName}.txt`,t,'text/plain');}
+
+document.getElementById('downloadImage').onclick=()=>{const d=buildData();const c=document.getElementById('logCanvas');const a=document.createElement('a');a.download=`irgamers_${d.displayName}.png`;a.href=c.toDataURL('image/png');a.click();}
 </script>
 </body>
 </html>
